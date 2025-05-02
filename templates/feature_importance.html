@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Importance - Heart Disease Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #dc3545;
+        }
+        .feature-list {
+            margin-top: 30px;
+        }
+        .feature-item {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Feature Importance</h1>
+            <p class="lead">Understanding which features contribute most to heart disease prediction</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="/static/feature_importance.png" alt="Feature Importance Chart" class="img-fluid" onerror="this.src='https://via.placeholder.com/800x400?text=Feature+Importance+Chart+Not+Available'; this.classList.add('missing-img');">
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <img src="/static/Random Forest_confusion_matrix.png" alt="Random Forest Confusion Matrix" class="img-fluid" onerror="this.src='https://via.placeholder.com/400x300?text=Random+Forest+Confusion+Matrix+Not+Available'; this.classList.add('missing-img');">
+                <p class="text-center mt-2">Random Forest Confusion Matrix</p>
+            </div>
+            <div class="col-md-6">
+                <img src="/static/SVM_confusion_matrix.png" alt="SVM Confusion Matrix" class="img-fluid" onerror="this.src='https://via.placeholder.com/400x300?text=SVM+Confusion+Matrix+Not+Available'; this.classList.add('missing-img');">
+                <p class="text-center mt-2">SVM Confusion Matrix</p>
+            </div>
+        </div>
+        
+        <div class="feature-list">
+            <h3>Feature Explanations</h3>
+            <p>Understanding these features is crucial for interpreting the model's predictions:</p>
+            
+            <div class="feature-item">
+                <h5>cp (Chest Pain Type)</h5>
+                <p>The type of chest pain experienced by the patient. This is often one of the most important indicators for heart disease.</p>
+                <ul>
+                    <li><strong>Value 0:</strong> Typical angina</li>
+                    <li><strong>Value 1:</strong> Atypical angina</li>
+                    <li><strong>Value 2:</strong> Non-anginal pain</li>
+                    <li><strong>Value 3:</strong> Asymptomatic</li>
+                </ul>
+            </div>
+            
+            <div class="feature-item">
+                <h5>thalach (Maximum Heart Rate)</h5>
+                <p>The maximum heart rate achieved during exercise. Lower maximum heart rates may indicate cardiovascular issues.</p>
+            </div>
+            
+            <div class="feature-item">
+                <h5>ca (Number of Major Vessels)</h5>
+                <p>The number of major vessels (0-3) colored by fluoroscopy. More colored vessels generally indicate more severe heart disease.</p>
+            </div>
+            
+            <div class="feature-item">
+                <h5>thal (Thalassemia)</h5>
+                <p>A blood disorder called thalassemia that can affect heart health:</p>
+                <ul>
+                    <li><strong>Value 0:</strong> Normal</li>
+                    <li><strong>Value 1:</strong> Fixed defect</li>
+                    <li><strong>Value 2:</strong> Reversible defect</li>
+                </ul>
+            </div>
+            
+            <div class="feature-item">
+                <h5>oldpeak (ST Depression)</h5>
+                <p>ST depression induced by exercise relative to rest. Higher values can indicate heart issues.</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-primary">Back to Prediction Tool</a>
+        </div>
+    </div>
+    
+    <footer class="text-center mt-4">
+        <small>Powered by Machine Learning | Random Forest & SVM Algorithms</small>
+        <br>
+        <small>Data: Cleveland Heart Disease Dataset (UCI)</small>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Check if images could not be loaded
+            $('.missing-img').each(function() {
+                $(this).after('<div class="alert alert-warning mt-2">This visualization will be available after model training.</div>');
+            });
+        });
+    </script>
+</body>
+</html> 
